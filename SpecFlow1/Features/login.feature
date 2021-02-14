@@ -77,7 +77,7 @@ Scenario: successful save with a condition for adding language
 	  Then details will be saved and add  button dissappears
 
 Scenario: succesful save for education tab
-	   Given To enter the skill set 
+	  Given To enter the skill set 
 	  And when you enter add feature for Education
 	  And you choose the option 
 	  When  click on add button
@@ -88,7 +88,7 @@ Scenario: succesful save for education tab
 	   
 
 Scenario: unsuccesful save for education tab
-	   Given To enter the skill set form 
+	  Given To enter the skill set form 
 	  And when you enter add feature for Education
 	  And when you dont fill/select either feilds
 	  When you choose the option and click on add
@@ -99,7 +99,7 @@ Scenario: unsuccesful save for education tab
 	   |2017
 
 Scenario: unsuccesful  save for the language feild
-	   Given To enter the skill set form 
+	  Given To enter the skill set form 
 	  And when you enter add feature for language
 	  And if you dont fill either of the feild
 	  When  click on add
@@ -113,7 +113,7 @@ Scenario: unsuccesful  save for the language feild
 	   Then notification pops up " dupilcated data"
 	   
 
-	  Scenario:  successful creation of all tabs
+Scenario:  successful creation of all tabs
 	  Given all the feilds are filled
 	  And when you press skillswap button
 	  Then it will redirect to another page 
@@ -125,19 +125,19 @@ Scenario: entering all the details to create a profile page
 	   Then notification pops up " Service list added successfully"
 
 
-   Scenario:  Adding the title on profile page using special charcters as a first character
+Scenario:  Adding the title on profile page using special charcters as a first character
       Given  To enter the first character as a  special symbol
 	  And  enter the special symbol as a first character
 	  When  you fill in all the remaing details  and click on save button
 	  Then notification pops up saying " please complete the form correctly"
 
-	  Scenario:  adding the description on profile page usig special charcters as a first character
+Scenario:  adding the description on profile page usig special charcters as a first character
       Given  To fill the description  by using special character
 	  And enter the special symbol as a first character
 	  When  you fill in all the remaing details  and click on save button
 	  Then notification pops up saying " please complete the form correctly
 
-	  Scenario: To make changes in the profile
+Scenario: To make changes in the profile
 	  Given  To select different category in the profile page
 	  And once you update the category
 	  When click on save button
