@@ -14,7 +14,7 @@ Scenario: create an account
 	When click the Join button
 	Then   "registration successful" is displayed
 
-Scenario: Perform Login of QA Mars
+Scenario: Perform  successful Login to the website
 	Given successful login
 	And Login to the profile
 	And  enter the  valid details as shown below
@@ -23,28 +23,31 @@ Scenario: Perform Login of QA Mars
 	When click the login button
 	Then it should take you to the main page
 
-	Given Unsuccessful login
-	And Login to the profile
-	And  enter the  invalid email address and valid password
+Scenario:  unsuccessful Login to the website
+    Given Login to the profile
+    And  enter the  invalid email address and valid password
 	  | email address                 | password |
 	  | lathishmasuvarnagmail,com | 123456789
-	When click the login button
-	Then error pops up " enter valid email address
 
-	Given Unsuccessful login
-	And Login to the profile
-	And  enter the  valid  email address and invalid password
+Scenario:  unsuccessful Login to the website
+Given Login to the profile
+     When click the login button
+	Then error pops up " enter valid email address " and " password must be atleast 6 characters"
+
+Scenario:  unsuccessful Login to the website
+	Given Login to the profile
+	And  Enter the  valid  email address and invalid password
 	  | email address                 | password |
 	  | lathishmasuvarna@gmail.com | 123456
 	When click the login button
-	Then notification pops up " confirm you email" and then click on " send email verification" button
+	Then Notification pops up " confirm you email" and then click on " send email verification" button
 	
 	 
 Scenario:click on the profile button to fill the profile deatils
-      Given profile page opens up (form1)
-      And  select the type  as per preference
-	  When  you can click on save
-	  Then all the details will be saved
+      Given Profile page opens up (form1)
+      And  Select the type  as per preference
+	  When you can click on save
+	  Then All the details will be saved
 	 
 	 Examples
 	  availability      | hours                 |   earn target 
@@ -63,7 +66,7 @@ Scenario: successful save
 	  When you choose the option and click on add
 	  Then details will be saved
 
-	  Example
+	 Example
 	  language  |language level
 	  english   | conversational
 
@@ -79,7 +82,7 @@ Scenario: succesful save for education tab
 	  And you choose the option 
 	  When  click on add button
 	  Then details will be saved
-	  Example
+	 Example
 	  college/university name  | country of college/University  | Title |  degree        | year of graduation
 	   VTU                     | India                          | B.Tech | engineering   |2017
 	   
@@ -90,17 +93,25 @@ Scenario: unsuccesful save for education tab
 	  And when you dont fill/select either feilds
 	  When you choose the option and click on add
 	  Then notifivation pops up " please enter all the feilds"
-	   Example
+	  Example
 	  college/university name  | country of college/University  | Title |  degree        | year of graduation
 	   VTU                     | India                          | B.Tech |            
 	   |2017
 
 Scenario: unsuccesful  save for the language feild
-	  Given To enter the skill set form 
+	   Given To enter the skill set form 
 	  And when you enter add feature for language
 	  And if you dont fill either of the feild
 	  When  click on add
 	  Then error pops up " Please enter language and level"
+
+ Scenario:  adding same language again
+	   Given to add the language
+	   And when you click on the add new button under language tab
+	   And when you enter the existing language and choose the level
+	   When you click on add
+	   Then notification pops up " dupilcated data"
+	   
 
 	  Scenario:  successful creation of all tabs
 	  Given all the feilds are filled
